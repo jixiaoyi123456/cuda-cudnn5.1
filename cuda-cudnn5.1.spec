@@ -1,7 +1,7 @@
 %global         cuda_version 8.0
 %global         real_name cuda-cudnn
 
-Name:           %{real_name}%{version}
+Name:           %{real_name}5.1
 Version:        5.1
 Release:        1%{?dist}
 Epoch:          1
@@ -24,13 +24,13 @@ pooling, normalization, and activation layers. cuDNN is part of the NVIDIA Deep
 Learning SDK.
 
 %package        devel
-Summary:        Development files for %{name}
+Summary:        Development files for %{real_name}
 Requires:       %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:       cuda%{?_isa} >= %{?epoch:%{epoch}:}%{cuda_version}
 
 %description    devel
-The %{name}-devel package contains libraries and header files for developing
-applications that use %{name}.
+The %{real_name}-devel package contains libraries and header files for developing
+applications that use %{real_name}.
 
 %prep
 %setup -qn cuda
