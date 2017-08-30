@@ -3,7 +3,7 @@
 
 Name:           %{real_name}5.1
 Version:        5.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Epoch:          1
 Summary:        NVIDIA CUDA Deep Neural Network library (cuDNN)
 License:        NVIDIA License
@@ -24,13 +24,13 @@ pooling, normalization, and activation layers. cuDNN is part of the NVIDIA Deep
 Learning SDK.
 
 %package        devel
-Summary:        Development files for %{real_name}
+Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:       cuda%{?_isa} >= %{?epoch:%{epoch}:}%{cuda_version}
 
 %description    devel
-The %{real_name}-devel package contains libraries and header files for developing
-applications that use %{real_name}.
+The %{name}-devel package contains libraries and header files for developing
+applications that use %{name}.
 
 %prep
 %setup -qn cuda
@@ -66,5 +66,8 @@ cp -frp *samples* %{buildroot}%{_datadir}/cuda/
 %{_libdir}/libcudnn_static.a
 
 %changelog
+* Wed Aug 30 2017 Simone Caronni <negativo17@gmail.com> - 1:5.1-2
+- Fix description for devel subpackage.
+
 * Fri Apr 07 2017 Simone Caronni <negativo17@gmail.com> - 1:5.1-1
 - First build based on last cuda-cudnn 5.1.
